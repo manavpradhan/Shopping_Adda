@@ -7,6 +7,7 @@ import path from "path";
 
 import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 
 const app = express();
 
@@ -27,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/v1", productRouter);
 app.use("/api/v1", userRouter);
-// app.use("/api/v1", order);
+app.use("/api/v1", orderRouter);
 // app.use("/api/v1", payment);
 
 // Middleware for Errors
