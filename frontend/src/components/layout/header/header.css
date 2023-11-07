@@ -1,0 +1,8 @@
+
+.nav4  {
+    gap: 3vmax;
+}
+
+.nav4 > a > svg{
+    font-size: 2.5vmax;
+}
