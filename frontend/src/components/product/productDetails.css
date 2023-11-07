@@ -1,7 +1,9 @@
 .ProductDetails {
     background-color: rgb(255, 255, 255);
     width: 100vw;
+    height: 100vh;
     max-width: 100%;
+    margin-top: 5vmax;
     padding: 6vmax;
     box-sizing: border-box;
     display: flex;
@@ -17,6 +19,10 @@
     padding: 2vmax;
     box-sizing: border-box;
     border: 1px solid white;
+  }
+
+  .ProductDetails > div:first-child {
+    transform: scale(0.8);
   }
   
   .ProductDetails > div:last-child {
@@ -223,7 +229,7 @@
     .ProductDetails > div:first-child {
         transform: scale(0.8);
         height: 60vh;
-        margin-top: 7vmax;
+        margin-top: 1vmax;
       }
   
     .ProductDetails > div:last-child {
