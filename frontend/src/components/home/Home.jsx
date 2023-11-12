@@ -6,7 +6,10 @@ import { CgMouse } from "react-icons/cg";
 import MetaData from "../layout/MetaData";
 import ProductCard from "./ProductCard";
 import Loader from "../../components/layout/loader/Loader";
-import { clearErrors, getProduct } from "../../store/actions/productActions.js";
+import {
+  clearErrors,
+  getProducts,
+} from "../../store/actions/productActions.js";
 
 // const product = {
 //   name: "Iphone",
@@ -31,7 +34,7 @@ const Home = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct());
+    dispatch(getProducts());
   }, [dispatch, error, alert]);
   return (
     <Fragment>

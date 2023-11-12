@@ -32,6 +32,7 @@ const options = {
   profileIconColor: "rgba(35, 35, 35,0.8)",
   ProfileIconElement: MdAccountCircle,
   searchIcon: true,
+  searchIconUrl: "/search",
   searchIconColor: "rgba(35, 35, 35,0.8)",
   SearchIconElement: MdSearch,
   cartIcon: true,
