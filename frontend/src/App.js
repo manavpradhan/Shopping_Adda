@@ -17,6 +17,8 @@ import Profile from "./components/user/Profile.jsx";
 import ProtectedUserRoute from "./components/route/ProtectedUserRoute.jsx";
 import UpdateProfile from "./components/user/UpdateProfile.jsx";
 import ForgotPassword from "./components/user/ForgotPassword.jsx";
+import UpdatePassword from "./components/user/UpdatePassword.jsx";
+import PasswordReset from "./components/user/PasswordReset.jsx";
 
 function App() {
   useEffect(() => {
@@ -45,8 +47,14 @@ function App() {
         <Route element={<ProtectedUserRoute />}>
           <Route exact path="/account" element={<Profile />} />
           <Route exact path="/me/update" element={<UpdateProfile />} />
+          <Route exact path="/password/update" element={<UpdatePassword />} />
         </Route>
         <Route exact path="/password/forgot" element={<ForgotPassword />} />
+        <Route
+          exact
+          path="/password/reset/:token"
+          element={<PasswordReset />}
+        />
       </Routes>
       <Footer />
     </Router>
