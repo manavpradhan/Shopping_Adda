@@ -20,6 +20,7 @@ import {
 import Loader from "../layout/loader/Loader";
 import ReviewCard from "./ReviewCard";
 import MetaData from "../layout/MetaData";
+import { addItemsToCart } from "../../store/actions/cartActions.js";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,11 @@ const ProductDetails = () => {
 
     const qty = quantity - 1;
     setQuantity(qty);
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(params.id, quantity));
+    alert.success("Item added to cart!");
   };
 
   const submitReviewToggle = () => {
@@ -110,7 +116,7 @@ const ProductDetails = () => {
                   </div>
                   <button
                     disabled={product.Stock < 1 ? true : false}
-                    // onClick={addToCartHandler}
+                    onClick={addToCartHandler}
                   >
                     Add to Cart
                   </button>

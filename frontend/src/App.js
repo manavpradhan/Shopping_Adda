@@ -19,6 +19,9 @@ import UpdateProfile from "./components/user/UpdateProfile.jsx";
 import ForgotPassword from "./components/user/ForgotPassword.jsx";
 import UpdatePassword from "./components/user/UpdatePassword.jsx";
 import PasswordReset from "./components/user/PasswordReset.jsx";
+import Cart from "./components/cart/Cart.jsx";
+import Shipping from "./components/cart/Shipping.jsx";
+import ConfirmOrder from "./components/cart/ConfirmOrder.jsx";
 
 function App() {
   useEffect(() => {
@@ -44,17 +47,20 @@ function App() {
         <Route exact path="/product/:id" element={<ProductDetails />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/login" element={<LoginSignUp />} />
-        <Route element={<ProtectedUserRoute />}>
-          <Route exact path="/account" element={<Profile />} />
-          <Route exact path="/me/update" element={<UpdateProfile />} />
-          <Route exact path="/password/update" element={<UpdatePassword />} />
-        </Route>
         <Route exact path="/password/forgot" element={<ForgotPassword />} />
         <Route
           exact
           path="/password/reset/:token"
           element={<PasswordReset />}
         />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route element={<ProtectedUserRoute />}>
+          <Route exact path="/account" element={<Profile />} />
+          <Route exact path="/me/update" element={<UpdateProfile />} />
+          <Route exact path="/password/update" element={<UpdatePassword />} />
+          <Route exact path="/shipping" element={<Shipping />} />
+          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+        </Route>
       </Routes>
       <Footer />
     </Router>

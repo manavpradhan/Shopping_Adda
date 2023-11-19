@@ -36,10 +36,17 @@ export const cartReducer = (
         cartItems: state.cartItems.filter((i) => i.product !== action.payload),
       };
 
+    default:
+      return state;
+  }
+};
+
+export const shippingReducer = (state = {}, action) => {
+  switch (action.type) {
     case SAVE_SHIPPING_INFO:
       return {
         ...state,
-        shippingInfo: action.payload,
+        details: action.payload,
       };
 
     default:
