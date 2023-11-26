@@ -6,6 +6,7 @@ import { useAlert } from "react-alert";
 import {
   clearErrors,
   getProductDetails,
+  newReview,
 } from "../../store/actions/productActions.js";
 import Rating from "@mui/material/Rating";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -21,6 +22,7 @@ import Loader from "../layout/loader/Loader";
 import ReviewCard from "./ReviewCard";
 import MetaData from "../layout/MetaData";
 import { addItemsToCart } from "../../store/actions/cartActions.js";
+import { NEW_REVIEW_RESET } from "../../store/constants/productConstants.js";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -29,6 +31,9 @@ const ProductDetails = () => {
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
+  );
+  const { success, error: reviewError } = useSelector(
+    (state) => state.newReview
   );
 
   const [quantity, setQuantity] = useState(1);
@@ -59,14 +64,35 @@ const ProductDetails = () => {
     open ? setOpen(false) : setOpen(true);
   };
 
+  const submitReview = () => {
+    const reviewData = new FormData();
+
+    reviewData.set("rating", rating);
+    reviewData.set("comment", comment);
+    reviewData.set("productId", params.id);
+
+    dispatch(newReview(reviewData));
+    setOpen(false);
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
 
+    if (reviewError) {
+      alert.error(reviewError);
+      dispatch(clearErrors());
+    }
+
+    if (success) {
+      alert.success("Your review has been submitted.");
+      dispatch({ type: NEW_REVIEW_RESET });
+    }
+
     dispatch(getProductDetails(params.id));
-  }, [dispatch, params.id, error, alert]);
+  }, [dispatch, params.id, error, alert, success, reviewError]);
 
   return (
     <Fragment>
@@ -97,6 +123,7 @@ const ProductDetails = () => {
               <div className="detailsBlock-2">
                 <Rating
                   name="half-rating-read"
+                  size="large"
                   value={product.ratings}
                   precision={0.5}
                   readOnly
@@ -165,7 +192,9 @@ const ProductDetails = () => {
               <Button onClick={submitReviewToggle} color="secondary">
                 Cancel
               </Button>
-              <Button color="primary">Submit</Button>
+              <Button color="primary" onClick={submitReview}>
+                Submit
+              </Button>
             </DialogActions>
           </Dialog>
 

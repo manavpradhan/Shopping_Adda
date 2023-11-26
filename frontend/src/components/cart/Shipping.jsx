@@ -22,19 +22,14 @@ const Shipping = () => {
   const navigate = useNavigate();
   const { details } = useSelector((state) => state.shippingInfo);
 
-  // const [address, setAddress] = useState(details.address);
-  // const [city, setCity] = useState(details.city);
-  // const [state, setState] = useState(details.state);
-  // const [country, setCountry] = useState(details.country);
-  // const [pinCode, setPinCode] = useState(details.pinCode);
-  // const [phoneNo, setPhoneNo] = useState(details.phoneNo);
+  const [address, setAddress] = useState("" || details.address);
+  const [city, setCity] = useState("" || details.city);
+  const [state, setState] = useState("" || details.state);
+  const [country, setCountry] = useState("" || details.country);
+  const [pinCode, setPinCode] = useState("" || details.pinCode);
+  const [phoneNo, setPhoneNo] = useState("" || details.phoneNo);
 
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [pinCode, setPinCode] = useState("");
-  const [phoneNo, setPhoneNo] = useState("");
+  const data = { address, city, state, country, pinCode, phoneNo };
 
   const shippingSubmit = (e) => {
     e.preventDefault();
@@ -43,9 +38,10 @@ const Shipping = () => {
       alert.error("Phone Number should be 10 digits Long");
       return;
     }
-    dispatch(
-      saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
-    );
+    dispatch(saveShippingInfo(data));
+
+    sessionStorage.setItem("shippingInfo", JSON.stringify(data));
+
     navigate("/order/confirm");
   };
 

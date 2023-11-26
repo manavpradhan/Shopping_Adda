@@ -1,0 +1,93 @@
+.myOrdersPage {
+    width: 100vw;
+    max-width: 100%;
+    padding: 7vmax;
+    box-sizing: border-box;
+    background-color: rgb(235, 235, 235);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #myOrdersHeading {
+    text-align: center;
+    font: 400 1.2vmax "Roboto";
+    padding: 0.5vmax;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    transition: all 0.5s;
+    background-color: rgb(44, 44, 44);
+  }
+  
+  .myOrdersTable {
+    background-color: white;
+  }
+  
+  .myOrdersTable div {
+    font: 300 1vmax "Roboto";
+    color: rgba(0, 0, 0, 0.678);
+    border: none;
+  }
+  
+  .myOrdersTable a {
+    color: rgba(0, 0, 0, 0.527);
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 1vmax;
+    text-decoration: none;
+  }
+  
+  .myOrdersTable a:hover {
+    color: tomato;
+  }
+
+  .MuiDataGrid-columnHeader {
+    background-color: tomato;
+    padding: 0 1vmax !important;
+  }
+  
+  .MuiDataGrid-columnHeader div {
+    /* margin: 0 auto !important; */
+    color: rgb(255, 255, 255);
+    font: 500 1.1vmax "Roboto" !important;
+  }
+
+  .MuiDataGrid-cell{
+    /* margin: 0 auto !important; */
+    /* display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; */
+  }
+  
+  .MuiDataGrid-iconSeparator {
+    display: none !important;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .myOrdersPage {
+
+    padding: 9vmax 1vmax 5vmax 1vmax;
+      height: 93vh;
+    }
+  
+    #myOrdersHeading {
+      font: 400 2.5vmax "Roboto";
+      padding: 3vw;
+    }
+  
+    .myOrdersTable div {
+      font: 300 3vw "Roboto";
+    }
+  
+    .MuiDataGrid-columnHeader {
+      padding: 20px !important;
+    }
+  
+    .MuiDataGrid-columnHeader div {
+      font: 500 3vw "Roboto" !important;
+    }
+  }

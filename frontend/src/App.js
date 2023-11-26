@@ -1,7 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Webfont from "webfontloader";
+import axios from "axios";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import store from "./store.js";
+import { loadUser } from "./store/actions/userActions.js";
+
 import Header from "./components/layout/header/Header";
 import Footer from "./components/layout/footer/Footer";
 import Home from "./components/home/Home";
@@ -9,9 +15,6 @@ import ProductDetails from "./components/product/ProductDetails";
 import Products from "./components/product/Products";
 import Search from "./components/product/Search";
 import LoginSignUp from "./components/user/LoginSignUp";
-import store from "./store.js";
-import { loadUser } from "./store/actions/userActions.js";
-import { useSelector } from "react-redux";
 import UserOptions from "./components/layout/header/UserOptions.jsx";
 import Profile from "./components/user/Profile.jsx";
 import ProtectedUserRoute from "./components/route/ProtectedUserRoute.jsx";
@@ -22,8 +25,21 @@ import PasswordReset from "./components/user/PasswordReset.jsx";
 import Cart from "./components/cart/Cart.jsx";
 import Shipping from "./components/cart/Shipping.jsx";
 import ConfirmOrder from "./components/cart/ConfirmOrder.jsx";
+import PaymentRoute from "./components/route/PaymentRoute.jsx";
+import OrderSuccess from "./components/cart/OrderSuccess.jsx";
+import MyOrder from "./components/order/MyOrder.jsx";
+import OrderDetails from "./components/order/OrderDetails.jsx";
 
 function App() {
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("api/v1/stripeapikey");
+
+    setStripeApiKey(data.stripeApiKey);
+  }
+
   useEffect(() => {
     Webfont.load({
       google: {
@@ -31,10 +47,11 @@ function App() {
       },
     });
 
+    // getStripeApiKey();
+    // console.log(stripeApiKey);
+
     store.dispatch(loadUser());
   }, []);
-
-  const { user, isAuthenticated } = useSelector((state) => state.user);
 
   return (
     <Router>
@@ -60,6 +77,14 @@ function App() {
           <Route exact path="/password/update" element={<UpdatePassword />} />
           <Route exact path="/shipping" element={<Shipping />} />
           <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+          <Route
+            exact
+            path="/process/payment"
+            element={<PaymentRoute stripeApiKey={stripeApiKey} />}
+          />
+          <Route exact path="/success" element={<OrderSuccess />} />
+          <Route exact path="/orders" element={<MyOrder />} />
+          <Route exact path="/order/:id" element={<OrderDetails />} />
         </Route>
       </Routes>
       <Footer />

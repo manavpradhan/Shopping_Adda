@@ -4,16 +4,18 @@ import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import handleError from "./middleware/error.js";
 import path from "path";
+import dotenv from "dotenv";
 
 import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
+import paymentRouter from "./routes/paymentRoute.js";
 
 const app = express();
 
 // Config
 // if (process.env.NODE_ENV !== "PRODUCTION") {
-//   require("dotenv").config({ path: "backend/config/config.env" });
+dotenv.config({ path: "backend/config/config.env" });
 // }
 
 app.use(express.json());
@@ -24,7 +26,7 @@ app.use(fileUpload());
 app.use("/api/v1", productRouter);
 app.use("/api/v1", userRouter);
 app.use("/api/v1", orderRouter);
-// app.use("/api/v1", payment);
+app.use("/api/v1", paymentRouter);
 
 // Middleware for Errors
 app.use(handleError);
