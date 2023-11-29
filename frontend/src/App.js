@@ -18,6 +18,7 @@ import LoginSignUp from "./components/user/LoginSignUp";
 import UserOptions from "./components/layout/header/UserOptions.jsx";
 import Profile from "./components/user/Profile.jsx";
 import ProtectedUserRoute from "./components/route/ProtectedUserRoute.jsx";
+import ProtectedAdminRoute from "./components/route/ProtectedAdminRoute.jsx";
 import UpdateProfile from "./components/user/UpdateProfile.jsx";
 import ForgotPassword from "./components/user/ForgotPassword.jsx";
 import UpdatePassword from "./components/user/UpdatePassword.jsx";
@@ -29,6 +30,10 @@ import PaymentRoute from "./components/route/PaymentRoute.jsx";
 import OrderSuccess from "./components/cart/OrderSuccess.jsx";
 import MyOrder from "./components/order/MyOrder.jsx";
 import OrderDetails from "./components/order/OrderDetails.jsx";
+import Dashboard from "./components/admin/Dashboard.jsx";
+import ProductList from "./components/admin/ProductList.jsx";
+import NewProduct from "./components/admin/NewProduct.jsx";
+import UpdateProduct from "./components/admin/UpdateProduct.jsx";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.user);
@@ -85,6 +90,12 @@ function App() {
           <Route exact path="/success" element={<OrderSuccess />} />
           <Route exact path="/orders" element={<MyOrder />} />
           <Route exact path="/order/:id" element={<OrderDetails />} />
+        </Route>
+        <Route element={<ProtectedAdminRoute />}>
+          <Route exact path="/admin/dashboard" element={<Dashboard />} />
+          <Route exact path="/admin/products" element={<ProductList />} />
+          <Route exact path="/admin/product/new" element={<NewProduct />} />
+          <Route exact path="/admin/product/:id" element={<UpdateProduct />} />
         </Route>
       </Routes>
       <Footer />

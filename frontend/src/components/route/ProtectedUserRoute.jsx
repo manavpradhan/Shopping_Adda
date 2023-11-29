@@ -4,7 +4,6 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedUserRoute = () => {
   const { loading, isAuthenticated } = useSelector((state) => state.user);
-
   return (
     !loading && (
       <Fragment>

@@ -103,7 +103,7 @@ const ProductDetails = () => {
           <MetaData title={`${product.name}`} />
           <div className="ProductDetails">
             <div>
-              <Carousel>
+              <Carousel className="carousel">
                 {product.images &&
                   product.images.map((item, i) => (
                     <img

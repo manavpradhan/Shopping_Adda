@@ -28,9 +28,14 @@
   .ProductDetails > div:last-child {
     align-items: flex-start;
   }
+
+  .carousel{
+    height: 60vmax;
+  }
   
   .CarouselImage {
-    width: 20vmax;
+   
+    object-fit: cover;
   }
   
   .detailsBlock-1 > h2 {

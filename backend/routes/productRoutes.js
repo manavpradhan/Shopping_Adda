@@ -4,6 +4,7 @@ import {
   createProductReview,
   deleteProduct,
   deleteReview,
+  getAdminProducts,
   getAllProducts,
   getProductDetails,
   getProductReviews,
@@ -19,6 +20,9 @@ router.route("/product/:id").get(getProductDetails);
 router.route("/reviews").get(getProductReviews);
 
 //for admin use only
+router
+  .route("/admin/products")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminProducts);
 router
   .route("/admin/product/new")
   .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
