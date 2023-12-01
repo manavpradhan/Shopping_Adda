@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-import "./style/updateProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import {
@@ -102,8 +101,9 @@ const UpdateProduct = () => {
     myForm.set("category", category);
     myForm.set("Stock", Stock);
 
-    myForm.set("images", JSON.stringify(images));
-
+    if (images.length >= 1) {
+      myForm.set("images", JSON.stringify(images));
+    }
     // images.forEach((img) => {
     //   myForm.append("images", img);
     // });
@@ -168,6 +168,7 @@ const UpdateProduct = () => {
               <input
                 type="number"
                 placeholder="Price"
+                value={price}
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -184,7 +185,10 @@ const UpdateProduct = () => {
             </div>
             <div>
               <AccountTree />
-              <select onChange={(e) => setCategory(e.target.value)}>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
                 <option value="">Choose Category</option>
                 {categories.map((cat) => (
                   <option key={cat} value={cat}>
@@ -198,6 +202,7 @@ const UpdateProduct = () => {
               <input
                 type="number"
                 placeholder="Stock"
+                value={Stock}
                 required
                 onChange={(e) => setStock(e.target.value)}
               />
@@ -212,10 +217,17 @@ const UpdateProduct = () => {
               />
             </div>
             <div id="createProductFormImage">
-              {oldImages &&
-                oldImages.map((image, index) => (
-                  <img key={index} src={image} alt="Old Product Preview" />
-                ))}
+              {oldImages.length >= 1
+                ? oldImages.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image.url}
+                      alt="Old Product Preview"
+                    />
+                  ))
+                : imagesPreview.map((image, index) => (
+                    <img key={index} src={image} alt="new Product Preview" />
+                  ))}
             </div>
             <Button
               id="createProductBtn"

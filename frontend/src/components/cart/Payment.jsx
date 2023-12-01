@@ -99,7 +99,7 @@ const Payment = () => {
     //   console.log(error.response.data.message);
     //   alert.error(error.response.data.message);
     // }
-    order.paymentInfo = { id: "payemnt", status: "paid" };
+    order.paymentInfo = { id: "payment", status: "paid" };
     dispatch(createOrder(order));
     alert.success("order created");
     navigate("/success");

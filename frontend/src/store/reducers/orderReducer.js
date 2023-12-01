@@ -110,7 +110,7 @@ export const allOrdersReducer = (state = { orders: [] }, action) => {
   }
 };
 
-export const orderReducer = (state = {}, action) => {
+export const updateOrderReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_ORDER_REQUEST:
     case DELETE_ORDER_REQUEST:

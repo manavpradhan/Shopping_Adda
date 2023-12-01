@@ -86,6 +86,7 @@
   .productCard > img {
     width: 14vmax;
     height: 20vmax;
+    object-fit: contain;
     margin: auto;
     padding-bottom: 1vmax;
   }

@@ -63,7 +63,7 @@ const NewProduct = () => {
     myForm.set("Stock", Stock);
 
     myForm.set("images", JSON.stringify(images));
-
+    // console.log(imagesPreview);
     // images.forEach((img) => {
     //   myForm.append("images", img);
     // });
