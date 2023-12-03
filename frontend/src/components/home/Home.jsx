@@ -63,9 +63,11 @@ const Home = () => {
 
           <div className="container" id="container">
             {products &&
-              products.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
+              products
+                .slice(0, 8)
+                .map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
           </div>
         </Fragment>
       )}

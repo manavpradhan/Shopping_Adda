@@ -1,10 +1,10 @@
 
 .nav4  {
-    gap: 3vmax;
+    gap: 2vmax;
 }
 
 .nav4 > a > svg{
-    font-size: 2.5vmax;
+    font-size: 3vmax;
 }
 
 .speedDial {
@@ -22,19 +22,19 @@
 @media screen and (max-width: 600px) {
   
   .speedDial{
-    right: 1vmax;
-    top: 1vmax;
+    right: 2vmax;
+    top: 2vmax;
   }
 
   .speedDialIcon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 100%;
   }
 
   .MuiButtonBase-root{
-    width: 50px !important;
-    height: 50px !important;
+    width: 45px !important;
+    height: 45px !important;
   }
 
 }

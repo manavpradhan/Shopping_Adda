@@ -130,10 +130,20 @@
   }
   
   @media screen and (max-width: 600px) {
-    .container{
+    /* .container{
         flex-wrap: nowrap;
+        margin: 2vmax 0;
+        width: 100vw;
+        height: 40vh;
         overflow: auto;
-    }
+    } */
+
+    /* .productCard {
+      width: 25vmax;
+      margin: 0;
+      padding: 1vmax;
+
+    } */
     
     .productCard > p {
       font-size: 1.7vmax;

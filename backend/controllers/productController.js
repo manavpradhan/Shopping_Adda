@@ -256,7 +256,7 @@ export const deleteReview = catchAsyncErrors(async (req, res, next) => {
     },
     {
       new: true,
-      runValidators: true,
+      runValidators: false,
       useFindAndModify: false,
     }
   );

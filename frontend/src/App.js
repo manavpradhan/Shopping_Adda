@@ -36,6 +36,10 @@ import NewProduct from "./components/admin/NewProduct.jsx";
 import UpdateProduct from "./components/admin/UpdateProduct.jsx";
 import OrderList from "./components/admin/OrderList.jsx";
 import ProcessOrder from "./components/admin/ProcessOrder.jsx";
+import UserList from "./components/admin/UserList.jsx";
+import UpdateUser from "./components/admin/UpdateUser.jsx";
+import ProductReviews from "./components/admin/ProductReviews.jsx";
+import About from "./components/layout/about/About.jsx";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.user);
@@ -66,6 +70,8 @@ function App() {
       {isAuthenticated && <UserOptions user={user} />}
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/contact" element={<Home />} />
         <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
         <Route exact path="/product/:id" element={<ProductDetails />} />
@@ -100,6 +106,9 @@ function App() {
           <Route exact path="/admin/product/:id" element={<UpdateProduct />} />
           <Route exact path="/admin/orders" element={<OrderList />} />
           <Route exact path="/admin/order/:id" element={<ProcessOrder />} />
+          <Route exact path="/admin/users" element={<UserList />} />
+          <Route exact path="/admin/user/:id" element={<UpdateUser />} />
+          <Route exact path="/admin/reviews" element={<ProductReviews />} />
         </Route>
       </Routes>
       <Footer />
