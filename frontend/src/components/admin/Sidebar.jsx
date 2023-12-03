@@ -18,7 +18,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Link>
-        <img src={logo} alt="ShoppingAdda" />
+        <img className="sidebarLogo" src={logo} alt="ShoppingAdda" />
       </Link>
       <Link to="/admin/dashboard">
         <p>

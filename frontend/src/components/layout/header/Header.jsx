@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ReactNavbar } from "overlay-navbar";
 import { MdAccountCircle, MdAddShoppingCart, MdSearch } from "react-icons/md";
 import logo from "../../../images/logo.png";
+import oldLogo from "../../../images/oldlogo.png";
 import "./header.css";
 
 const options = {
@@ -45,6 +46,12 @@ const options = {
 };
 
 const Header = () => {
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      options.logo = oldLogo;
+    }
+  }, [window.innerWidth]);
+
   return <ReactNavbar {...options} />;
 };
 

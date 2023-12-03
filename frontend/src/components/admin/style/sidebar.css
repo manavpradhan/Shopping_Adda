@@ -4,6 +4,12 @@
     flex-direction: column;
     padding: 4rem 0;;
   }
+
+  .sidebarLogo{
+    height: 10vmax;
+    object-fit: cover;
+    
+  }
   
   .sidebar > a:first-child {
     padding: 0;
