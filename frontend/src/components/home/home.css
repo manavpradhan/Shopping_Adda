@@ -12,13 +12,13 @@
     color: white;
   }
   
-  .banner > h1 {
+  .tagline{
     margin: 6vmax;
   
     font: 600 2.5vmax "Roboto";
   }
   
-  .banner > p {
+  .heading {
     font: 300 1.7vmax "Lucida Sans";
   }
   
@@ -144,6 +144,10 @@
       padding: 1vmax;
 
     } */
+
+    .heading{
+      font: 300 3vmax "Roboto";
+    }
     
     .productCard > p {
       font-size: 1.7vmax;

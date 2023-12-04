@@ -45,8 +45,8 @@ const Home = () => {
           <MetaData title="Shopping Adda" />
 
           <div className="banner">
-            <p>Welcome to Shopping Adda</p>
-            <h1>
+            <h1 className="heading">Welcome to Shopping Adda</h1>
+            <h1 className="tagline">
               GOT A WISHLIST?
               <br />
               WELL, YOU ARE AT THE RIGHT PLACE

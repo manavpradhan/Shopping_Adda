@@ -30,12 +30,14 @@
   }
 
   .carousel{
-    height: 60vmax;
+    /* height: 60vmax; */
   }
   
   .CarouselImage {
-   
-    object-fit: cover;
+    /* height: 35vmax;
+    width: 25vmax;
+    object-fit: contain;
+    aspect-ratio: initial; */
   }
   
   .detailsBlock-1 > h2 {
@@ -45,7 +47,7 @@
   }
   
   .detailsBlock-1 > p {
-    color: rgba(54, 54, 54, 0.582);
+    color: rgba(141, 35, 35, 0.582);
     font: 200 0.6vmax cursive;
   }
   

@@ -15,6 +15,7 @@ footer {
     align-items: center;
   }
   .leftFooter > h4 {
+    margin-bottom: 2vmax;
     font-family: "Roboto";
     font-size: 1vmax;
   }
@@ -55,6 +56,7 @@ footer {
     align-items: center;
   }
   .rightFooter > h4 {
+    margin-bottom: 3vmax;
     font-family: "Roboto";
     font-size: 1.4vmax;
     text-decoration: underline;
@@ -71,3 +73,22 @@ footer {
   .rightFooter > a:hover {
     color: #eb4034;
   }
+
+@media screen and (max-width: 600px){
+  .leftFooter > h4{
+    margin-bottom: 1vmax;
+    font-size: 0.9vmax;
+  }
+
+  .midFooter > h1{
+    font-size: 2vmax;
+  }
+
+  .midFooter > p{
+    font-size: 1.4vmax;
+  }
+
+  .rightFooter > h4 {
+    margin-bottom: 3vmax;
+  }
+}

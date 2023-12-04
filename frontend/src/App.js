@@ -40,6 +40,7 @@ import UserList from "./components/admin/UserList.jsx";
 import UpdateUser from "./components/admin/UpdateUser.jsx";
 import ProductReviews from "./components/admin/ProductReviews.jsx";
 import About from "./components/layout/about/About.jsx";
+import NotFound from "./components/layout/notFound/NotFound.jsx";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.user);
@@ -63,6 +64,8 @@ function App() {
 
     store.dispatch(loadUser());
   }, []);
+
+  window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <Router>
@@ -110,6 +113,7 @@ function App() {
           <Route exact path="/admin/user/:id" element={<UpdateUser />} />
           <Route exact path="/admin/reviews" element={<ProductReviews />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

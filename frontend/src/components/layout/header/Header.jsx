@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import { MdAccountCircle, MdAddShoppingCart, MdSearch } from "react-icons/md";
 import logo from "../../../images/logo.png";
-import oldLogo from "../../../images/oldlogo.png";
+import phoneLogo from "../../../images/phone_logo.png";
 import "./header.css";
 
 const options = {
   burgerColorHover: "#eb4034",
   logo,
   logoWidth: "20vmax",
-  navColor1: "rgba(214, 214, 214, 0.575)",
+  navColor1: "rgb(255 244 226)",
   logoHoverSize: "10px",
   logoHoverColor: "#eb4034",
   link1Text: "Home",
@@ -46,11 +46,9 @@ const options = {
 };
 
 const Header = () => {
-  useEffect(() => {
-    if (window.innerWidth < 600) {
-      options.logo = oldLogo;
-    }
-  }, [window.innerWidth]);
+  if (window.innerWidth < 600) {
+    options.logo = phoneLogo;
+  }
 
   return <ReactNavbar {...options} />;
 };

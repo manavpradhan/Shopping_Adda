@@ -11,6 +11,7 @@ import {
 import Rating from "@mui/material/Rating";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+
 import {
   Dialog,
   DialogActions,
@@ -67,12 +68,17 @@ const ProductDetails = () => {
   const submitReview = () => {
     const reviewData = new FormData();
 
-    reviewData.set("rating", rating);
-    reviewData.set("comment", comment);
-    reviewData.set("productId", params.id);
+    if (!rating && !comment) {
+      setOpen(false);
+      alert.error("please give rating or leave a comment");
+    } else {
+      reviewData.set("rating", rating);
+      reviewData.set("comment", comment);
+      reviewData.set("productId", params.id);
 
-    dispatch(newReview(reviewData));
-    setOpen(false);
+      dispatch(newReview(reviewData));
+      setOpen(false);
+    }
   };
 
   useEffect(() => {

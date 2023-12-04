@@ -37,4 +37,33 @@
     height: 45px !important;
   }
 
+  /* .nav1{
+    width: 39.3%;
+  }
+
+  .nav2{
+    width: 20%;
+    transform: translateX(6.85vmax) !important;
+
+  }
+
+  .nav3{
+    width: 20%;
+    transform: translateX(4.44vmax) !important;
+  }
+
+  .nav4 {
+    width: 20%;
+    transform: translateX(2vmax) !important;
+  }
+  */
+  .logoReactNavbar{
+    padding: 0;
+    margin: 0;
+    transform: translateX(6vmax)  !important;
+    width: 20vmax !important;
+    position: absolute !important;
+  } 
+
+
 }
