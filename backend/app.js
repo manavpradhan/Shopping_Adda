@@ -10,6 +10,7 @@ import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import paymentRouter from "./routes/paymentRoute.js";
+import { workerData } from "worker_threads";
 
 const app = express();
 
