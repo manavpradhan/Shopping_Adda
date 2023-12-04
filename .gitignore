@@ -38,8 +38,11 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+#env files
+.env
+
 # Dependency directories
-backend/config/config.env
+# backend/config/config.env
 node_modules/
 jspm_packages/
 
