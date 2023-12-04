@@ -37,8 +37,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/frontend/build/index.html"));
 });
 
-console.log("hi");
-
 // Middleware for Errors
 app.use(handleError);
 
