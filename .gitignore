@@ -42,7 +42,7 @@ build/Release
 config.env
 
 # Dependency directories
-# backend/config/config.env
+backend/config/config.env
 node_modules/
 jspm_packages/
 
