@@ -39,7 +39,7 @@ bower_components
 build/Release
 
 #env files
-.env
+config.env
 
 # Dependency directories
 # backend/config/config.env
