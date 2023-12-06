@@ -85,7 +85,7 @@
   
   .productCard > img {
     width: 14vmax;
-    height: 20vmax;
+    height: 17vmax;
     object-fit: contain;
     margin: auto;
     padding-bottom: 1vmax;
@@ -114,6 +114,10 @@
     font-size: 1.4vmax;
     margin: 1vmax 0.5vmax;
     margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   
   .productCard > span {

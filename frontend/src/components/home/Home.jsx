@@ -29,6 +29,10 @@ const Home = () => {
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
 
+  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+  const shuffledProducts = shuffle(products);
+  console.log(shuffledProducts);
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -62,8 +66,8 @@ const Home = () => {
           <h2 className="homeHeading">Featured Products</h2>
 
           <div className="container" id="container">
-            {products &&
-              products
+            {shuffledProducts &&
+              shuffledProducts
                 .slice(0, 8)
                 .map((product) => (
                   <ProductCard key={product._id} product={product} />

@@ -1,0 +1,271 @@
+.contactSection {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    position: fixed;
+  }
+  
+  .contactSectionGradient {
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(189, 143, 74),
+      rgb(98, 99, 150)
+    );
+  }
+  
+  .contactSectionContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: rgb(255, 255, 255);
+    width: 80vw;
+    height: 80vh;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.192);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contactSectionContainer > h1 {
+    font: 400 3vmax "Roboto";
+    color: tomato;
+    margin: 2vmax;
+  }
+  
+  .screen {
+    display: flex;
+    width: 60%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #3e3e3e;
+    border-radius: 15px;
+    font-size: 25px;
+  }
+
+  .screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+  }
+/*   
+  .screen-header {
+    display: flex;
+ 
+    align-items: center;
+   
+    padding: 8px 20px;
+    background: #4d4d4f;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  } */
+
+  /* .screen-header-left {
+    margin-right: auto;
+  }
+
+  .screen-header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  .screen-header-button.close {
+    background: #ed1c6f;
+  }
+  
+  .screen-header-button.maximize {
+    background: #e8e925;
+  }
+  
+  .screen-header-button.minimize {
+    background: #74c54f;
+  }
+  
+  .screen-header-right {
+    display: flex;
+  }
+  
+  .screen-header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: #999;
+  } */
+
+  
+.screen-body {
+    display: flex;
+    gap: 10vmax;
+  }
+  
+  .screen-body-item {
+    padding: 50px;
+  }
+  
+  .screen-body-item.left {
+    display: flex;
+    gap: 2vmax;
+    flex-direction: column;
+  }
+  
+  .app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #ea1d6f;
+    font-size: 2.5vmax;
+  }
+  
+  .app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: #ea1d6f;
+  }
+
+  .app-email {
+    margin-top: auto;
+    font-size: 18px;
+    color: #888;
+    
+  }
+
+  .app-email > a{
+    font-size: 18px;
+    color: #888;
+    text-decoration: underline;
+  }
+  
+  .app-contact {
+    margin-top: auto;
+    font-size: 18px;
+    color: #888;
+  }
+
+  .app-form{
+    font-size: 25px !important;
+  }
+  
+  .app-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .app-form-group.message {
+    margin-top: 40px;
+  }
+  
+  .app-form-group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  
+  .app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+  }
+  
+  .app-form-control::placeholder {
+    color: #666;
+  }
+  
+  .app-form-control:focus {
+    border-bottom-color: #ddd;
+  }
+  
+  .app-form-button {
+    background: none;
+    border: none;
+    color: #ea1d6f;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .app-form-button:hover {
+    color: #b9134f;
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .contactSectionContainer > div {
+      display: block;
+    }
+  
+    .contactSectionContainer > h1 {
+      font: 400 5vmax "Roboto";
+      margin: 3vmax;
+    }
+
+    .screen{
+        width: 85%;
+        height: 75%;
+    }
+
+    .screen-body {
+        flex-direction: column;
+        gap: 8vmax;
+        padding: 30px;
+      }
+
+      .screen-body-item.left{
+        margin-top: 3vmax;
+      }
+    
+      .screen-body-item {
+        padding: 0;
+      }
+    
+      .app-title {
+        flex-direction: row;
+      }
+    
+      .app-title span {
+        margin-right: 12px;
+      }
+    
+      .app-title:after {
+        display: none;
+      }
+
+      .app-email{
+        font-size: 12px;
+      }
+      .app-email > a{
+        font-size: 12px;
+      }
+
+      .app-contact{
+        font-size: 12px;
+      }
+  
+  }

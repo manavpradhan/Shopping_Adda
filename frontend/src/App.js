@@ -40,6 +40,7 @@ import UserList from "./components/admin/UserList.jsx";
 import UpdateUser from "./components/admin/UpdateUser.jsx";
 import ProductReviews from "./components/admin/ProductReviews.jsx";
 import About from "./components/layout/about/About.jsx";
+import Contact from "./components/layout/contact/Contact.jsx";
 import NotFound from "./components/layout/notFound/NotFound.jsx";
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/contact" element={<Home />} />
+        <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
         <Route exact path="/product/:id" element={<ProductDetails />} />

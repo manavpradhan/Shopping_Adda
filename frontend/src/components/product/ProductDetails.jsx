@@ -36,6 +36,7 @@ const ProductDetails = () => {
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
   );
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
@@ -62,7 +63,11 @@ const ProductDetails = () => {
   };
 
   const submitReviewToggle = () => {
-    open ? setOpen(false) : setOpen(true);
+    if (isAuthenticated) {
+      open ? setOpen(false) : setOpen(true);
+    } else {
+      alert.error("Please login to make a review");
+    }
   };
 
   const submitReview = () => {
